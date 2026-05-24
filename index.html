@@ -4,154 +4,272 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Política de Privacidade – Editor de Foto</title>
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #07070A;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --primary: #8B00FF;
+      --primary-light: #B026FF;
+      --text: #FFFFFF;
+      --muted: #B9B9C6;
+      --soft: #E7E7EF;
+    }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #ffffff;
-      color: #212529;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(139, 0, 255, 0.35), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(176, 38, 255, 0.22), transparent 35%),
+        var(--bg);
+      color: var(--text);
       line-height: 1.7;
-      padding: 0 16px 64px;
+      padding-bottom: 64px;
     }
 
     header {
-      background: #7C4DFF;
-      color: #fff;
-      padding: 40px 24px 32px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 72px 24px 40px;
       text-align: center;
     }
 
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
     header h1 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      font-weight: 800;
+    }
+
+    header h1 span {
+      background: linear-gradient(135deg, #FFFFFF, #C85CFF, #7B2DFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     header p {
-      margin-top: 8px;
-      font-size: 0.9rem;
-      opacity: 0.85;
+      max-width: 620px;
+      margin: 20px auto 0;
+      color: var(--muted);
+      font-size: 1rem;
     }
 
     main {
-      max-width: 720px;
-      margin: 40px auto 0;
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    section:hover {
+      transform: translateY(-3px);
+      border-color: rgba(176, 38, 255, 0.45);
     }
 
     h2 {
       font-size: 1.1rem;
-      font-weight: 700;
-      color: #7C4DFF;
-      margin: 32px 0 8px;
+      color: var(--soft);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    p { margin-top: 8px; font-size: 0.95rem; color: #495057; }
+    h2::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      box-shadow: 0 0 18px var(--primary-light);
+      flex-shrink: 0;
+    }
+
+    p, li {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
 
     ul {
-      margin: 8px 0 0 20px;
-      font-size: 0.95rem;
-      color: #495057;
+      margin-top: 12px;
+      padding-left: 20px;
     }
 
-    ul li { margin-top: 4px; }
+    li {
+      margin-top: 8px;
+    }
 
-    a { color: #7C4DFF; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    strong {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    a {
+      color: #D38CFF;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     footer {
-      margin-top: 56px;
+      width: min(920px, calc(100% - 32px));
+      margin: 40px auto 0;
+      padding: 24px;
       text-align: center;
-      font-size: 0.8rem;
-      color: #868E96;
+      color: #77778A;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding-top: 56px;
+      }
+
+      section {
+        padding: 22px;
+        border-radius: 20px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <h1>Política de Privacidade</h1>
-  <p>Editor de Foto &middot; Última atualização: 24 de maio de 2026</p>
+  <div class="badge">🔒 Privacidade e segurança</div>
+  <h1>Política de <span>Privacidade</span></h1>
+  <p>Editor de Foto · Última atualização: 24 de maio de 2026</p>
 </header>
 
 <main>
 
-  <h2>1. Introdução</h2>
-  <p>
-    Esta Política de Privacidade descreve como o aplicativo <strong>Editor de Foto</strong>
-    coleta, usa e protege suas informações. Ao usar o app, você concorda com os termos
-    descritos abaixo.
-  </p>
+  <section>
+    <h2>1. Introdução</h2>
+    <p>
+      Esta Política de Privacidade descreve como o aplicativo <strong>Editor de Foto</strong>
+      coleta, usa e protege suas informações. Ao usar o app, você concorda com os termos
+      descritos abaixo.
+    </p>
+  </section>
 
-  <h2>2. Informações que coletamos</h2>
-  <p>O app pode coletar as seguintes categorias de dados:</p>
-  <ul>
-    <li><strong>Imagens:</strong> fotos selecionadas por você para edição. Processadas localmente no dispositivo e nunca enviadas a servidores externos.</li>
-    <li><strong>Dados de uso:</strong> informações anônimas sobre como o app é utilizado, coletadas por ferramentas de análise para melhorar a experiência.</li>
-    <li><strong>Dados de anúncios:</strong> identificadores de publicidade usados para exibir anúncios relevantes via Google AdMob.</li>
-  </ul>
+  <section>
+    <h2>2. Informações que coletamos</h2>
+    <p>O app pode coletar as seguintes categorias de dados:</p>
+    <ul>
+      <li><strong>Imagens:</strong> fotos selecionadas por você para edição. Processadas localmente no dispositivo e nunca enviadas a servidores externos.</li>
+      <li><strong>Dados de uso:</strong> informações anônimas sobre como o app é utilizado, coletadas por ferramentas de análise para melhorar a experiência.</li>
+      <li><strong>Dados de anúncios:</strong> identificadores de publicidade usados para exibir anúncios relevantes via Google AdMob.</li>
+    </ul>
+  </section>
 
-  <h2>3. Como usamos as informações</h2>
-  <ul>
-    <li>Processar e editar imagens exclusivamente no seu dispositivo.</li>
-    <li>Melhorar funcionalidades e corrigir erros com base em dados anônimos de uso.</li>
-    <li>Exibir anúncios personalizados ou não personalizados por meio do Google AdMob.</li>
-  </ul>
+  <section>
+    <h2>3. Como usamos as informações</h2>
+    <ul>
+      <li>Processar e editar imagens exclusivamente no seu dispositivo.</li>
+      <li>Melhorar funcionalidades e corrigir erros com base em dados anônimos de uso.</li>
+      <li>Exibir anúncios personalizados ou não personalizados por meio do Google AdMob.</li>
+    </ul>
+  </section>
 
-  <h2>4. Compartilhamento de dados</h2>
-  <p>
-    Não vendemos, alugamos nem compartilhamos suas informações pessoais com terceiros,
-    exceto com provedores de serviços necessários para o funcionamento do app
-    (ex.: Google AdMob para anúncios). Esses provedores têm suas próprias políticas de privacidade.
-  </p>
+  <section>
+    <h2>4. Compartilhamento de dados</h2>
+    <p>
+      Não vendemos, alugamos nem compartilhamos suas informações pessoais com terceiros,
+      exceto com provedores de serviços necessários para o funcionamento do app
+      como Google AdMob para anúncios.
+    </p>
+  </section>
 
-  <h2>5. Google AdMob</h2>
-  <p>
-    O app utiliza o Google AdMob para exibição de anúncios. O AdMob pode coletar
-    identificadores de dispositivo e dados de uso de acordo com a
-    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Google</a>.
-    Você pode optar por não receber anúncios personalizados nas configurações do seu dispositivo.
-  </p>
+  <section>
+    <h2>5. Google AdMob</h2>
+    <p>
+      O app utiliza o Google AdMob para exibição de anúncios. O AdMob pode coletar
+      identificadores de dispositivo e dados de uso de acordo com a
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
+        Política de Privacidade do Google
+      </a>.
+    </p>
+  </section>
 
-  <h2>6. Armazenamento e segurança</h2>
-  <p>
-    Suas imagens são processadas e armazenadas localmente no dispositivo.
-    Não mantemos cópias em servidores. Adotamos medidas técnicas razoáveis para
-    proteger os dados coletados.
-  </p>
+  <section>
+    <h2>6. Armazenamento e segurança</h2>
+    <p>
+      Suas imagens são processadas e armazenadas localmente no dispositivo.
+      Não mantemos cópias em servidores. Adotamos medidas técnicas razoáveis para
+      proteger os dados coletados.
+    </p>
+  </section>
 
-  <h2>7. Menores de idade</h2>
-  <p>
-    O app não é direcionado a crianças menores de 13 anos e não coleta intencionalmente
-    dados de menores. Se você acredita que coletamos dados de uma criança, entre em
-    contato para que possamos removê-los.
-  </p>
+  <section>
+    <h2>7. Menores de idade</h2>
+    <p>
+      O app não é direcionado a crianças menores de 13 anos e não coleta intencionalmente
+      dados de menores. Caso isso ocorra, entre em contato para solicitar a remoção.
+    </p>
+  </section>
 
-  <h2>8. Seus direitos</h2>
-  <p>Você pode, a qualquer momento:</p>
-  <ul>
-    <li>Solicitar informações sobre quais dados possuímos.</li>
-    <li>Solicitar a exclusão de dados coletados.</li>
-    <li>Desativar anúncios personalizados nas configurações do dispositivo.</li>
-  </ul>
+  <section>
+    <h2>8. Seus direitos</h2>
+    <ul>
+      <li>Solicitar informações sobre quais dados possuímos.</li>
+      <li>Solicitar a exclusão de dados coletados.</li>
+      <li>Desativar anúncios personalizados nas configurações do dispositivo.</li>
+    </ul>
+  </section>
 
-  <h2>9. Alterações nesta política</h2>
-  <p>
-    Podemos atualizar esta política periodicamente. Alterações significativas serão
-    comunicadas dentro do app ou nesta página. O uso continuado do app após as
-    alterações implica aceitação da nova versão.
-  </p>
+  <section>
+    <h2>9. Alterações nesta política</h2>
+    <p>
+      Podemos atualizar esta política periodicamente. Alterações significativas serão
+      comunicadas dentro do app ou nesta página.
+    </p>
+  </section>
 
-  <h2>10. Contato</h2>
-  <p>
-    Dúvidas ou solicitações relacionadas à privacidade:<br />
-    <a href="mailto:joaovitorfranca49@gmail.com">joaovitorfranca49@gmail.com</a>
-  </p>
+  <section>
+    <h2>10. Contato</h2>
+    <p>
+      Dúvidas ou solicitações relacionadas à privacidade:<br />
+      <a href="mailto:joaovitorfranca49@gmail.com">joaovitorfranca49@gmail.com</a>
+    </p>
+  </section>
 
 </main>
 
 <footer>
-  <p>&copy; 2026 Editor de Foto. Todos os direitos reservados.</p>
+  © 2026 Editor de Foto. Todos os direitos reservados.
 </footer>
 
 </body>
